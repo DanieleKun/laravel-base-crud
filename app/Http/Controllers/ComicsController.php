@@ -37,7 +37,18 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData = $request->all();
+
+        $comic = new Comic();
+        $comic->title = $formData['title'];
+        $comic->description = $formData['description'];
+        $comic->thumb = $formData['thumb'];
+        $comic->price = $formData['price'];
+        $comic->series = $formData['series'];
+        $comic->sale_date = $formData['sale_date'];
+        $comic->type = $formData['type'];
+
+        $comic->save();
     }
 
     /**
